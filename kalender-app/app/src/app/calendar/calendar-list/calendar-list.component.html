@@ -1,0 +1,13 @@
+<div class="p-grid p-nogutter">
+  <div class="p-col-12 p-md-12 p-lg-6">
+    <p-card>
+      <p-dropdown [style]="{ width: '100%'}" placeholder="Select calendar" [options]="calendars"
+                  (onChange)="onChangeCalendar($event.value)"></p-dropdown>
+    </p-card>
+  </div>
+  <div class="p-col-12 p-md-6 p-lg-4" style="display:flex;align-items:center;">
+    <p-progressSpinner *ngIf="isLoading" [style]="{ marginLeft: '5px', width: '30px', height: '30px'}" fill="#eee"
+                       strokeWidth="6" animationDuration=".5s"></p-progressSpinner>
+  </div>
+</div>
+<p-toast position="bottom-left"></p-toast>

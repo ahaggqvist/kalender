@@ -1,0 +1,18 @@
+version: "2.4"
+
+services:
+  redis:
+    container_name: redis
+    image: redis:alpine3.13
+    command: redis-server --requirepass changeit
+    mem_limit: 256m
+    memswap_limit: 512m
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - "./redis.conf:/usr/local/etc/redis/redis.conf"
+      - "redis_data:/var/lib/redis"
+volumes:
+  redis_data:
+    external: true

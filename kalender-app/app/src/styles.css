@@ -1,0 +1,31 @@
+@import "../node_modules/primeflex/primeflex.css";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/themes/nova/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/@fullcalendar/timegrid/main.min.css";
+@import "../node_modules/@fullcalendar/core/main.min.css";
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: .8em;
+  text-decoration: none;
+  margin-top: 0;
+}
+
+.fc-content,
+.fc-time-grid {
+  cursor: pointer;
+}
+
+.fc .fc-event {
+  color: #000 !important;
+}
+
+.fc-time {
+  font-size: 1.2em !important;
+}
+
+.fc-title {
+  font-size: 1.3em !important;
+  font-weight: bold;
+}

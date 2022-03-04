@@ -1,0 +1,9 @@
+<div class="p-grid p-nogutter p-grid-header">
+  <div class="p-col-6 col-menu">
+    <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    <button type="button" pButton icon="pi pi-bars" (click)="menu.toggle($event)"></button>
+  </div>
+  <div class="p-col-6 col-avatar">
+    <span class="circular avatar" [pTooltip]="userInfo">{{ avatar }}</span>
+  </div>
+</div>

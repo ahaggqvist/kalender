@@ -1,0 +1,31 @@
+<div class="p-grid p-nogutter">
+  <div class="p-col-12 p-md-12 p-lg-6">
+    <form #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm.value)">
+      <p-card class="">
+        <input id="title-input" type="text" [(ngModel)]="title" name="title" pInputText
+               placeholder="Add a title for the event">
+        <hr>
+        <input id="description-input" type="text" [(ngModel)]="body" name="body" pInputText
+               placeholder="Add a note for the event">
+        <hr>
+        <p-dropdown [style]="{'width': '100%'}" placeholder="Location" [options]="rooms" [(ngModel)]="selectedRoom"
+                    name="selectedRoom"></p-dropdown>
+        <hr>
+        <span style="margin-right: 5px;"><p-calendar [(ngModel)]="startTime" dateFormat="yy-mm-dd" [showTime]="true"
+                                                     [showSeconds]="false" dataType="string"
+                                                     name="startTime"></p-calendar></span>
+        <p-calendar [(ngModel)]="endTime" dateFormat="yy-mm-dd" [showTime]="true" [showSeconds]="false"
+                    dataType="string" name="endTime"></p-calendar>
+        <hr>
+        <span style="margin-right: 5px;"><p-button type="submit" label="SAVE" (click)="onClickSave()"></p-button></span>
+        <span style="margin-right: 5px;"><p-button type="submit" label="DELETE"
+                                                   (click)="onClickDelete()"></p-button></span>
+        <p-button label="CANCEL" (click)="onClickCancel()"></p-button>
+        <p-progressSpinner *ngIf="isLoading"
+                           [style]="{ display: 'inline-block', verticalAlign: 'middle', marginLeft: '5px', width: '30px', height: '30px' }"
+                           fill="#eee" strokeWidth="6" animationDuration=".5s"></p-progressSpinner>
+      </p-card>
+    </form>
+  </div>
+</div>
+<p-toast position="bottom-left"></p-toast>

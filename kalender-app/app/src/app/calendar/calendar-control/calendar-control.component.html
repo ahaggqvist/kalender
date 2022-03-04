@@ -1,0 +1,5 @@
+<p-calendar [ngModel]="selectedDate" (ngModelChange)="onDateChange($event)" dateFormat="yy-mm-dd" [readonlyInput]="true"
+            [locale]="en"></p-calendar>
+<p-button class="p-button-space" (click)="onClickBack()" icon="pi pi-chevron-left"></p-button>
+<p-button class="p-button-space" (click)="onClickForward()" icon="pi pi-chevron-right"></p-button>
+<p-button class="p-button-space" (click)="onClickToday()" icon="pi pi-calendar"></p-button>

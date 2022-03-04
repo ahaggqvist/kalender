@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration debug="false">
+    <appender name="CONSOLE"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <springProfile name="dev">
+        <logger name="se.sjuhundrac.kalender" level="DEBUG"
+                additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="org.springframework" level="INFO"
+                additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="microsoft.exchange" level="ERROR"
+                additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="prod">
+        <logger name="se.sjuhundrac.kalender" level="ERROR"
+                additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="org.springframework" level="ERROR"
+                additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <logger name="microsoft.exchange" level="ERROR"
+                additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+    </springProfile>
+
+    <logger name="org.apache" level="ERROR" additivity="false"/>
+
+    <logger name="org.springframework.jndi" level="ERROR"
+            additivity="false"/>
+</configuration>

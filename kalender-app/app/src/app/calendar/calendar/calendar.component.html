@@ -1,0 +1,21 @@
+<div class="p-grid p-nogutter">
+  <div class="p-col-8 p-md-6 p-lg-8">
+    <h1>{{ calendarNameTitle }}</h1>
+    <h3>{{ calendarDateTitle }}</h3>
+  </div>
+</div>
+<div class="p-grid p-nogutter">
+  <div class="p-col-6 p-md-10 p-lg-4 p-lg-offset-8" [style]="{ 'text-align': 'right', 'margin-bottom': '10px' }">
+    <p-progressSpinner *ngIf="isLoading"
+                       [style]="{ display: 'inline-block', verticalAlign: 'middle', marginRight: '5px', width: '30px', height: '30px' }"
+                       fill="#eee" strokeWidth="6" animationDuration=".5s"></p-progressSpinner>
+    <calendar-control [selectedDate]="calendarControlDate" (forwardEvent)="onClickForward()" (backEvent)="onClickBack()"
+                      (todayEvent)="onClickToday()" (dateChangeEvent)="onDateChange($event)"></calendar-control>
+  </div>
+</div>
+<div class="p-grid p-nogutter">
+  <div class="p-col-12">
+    <p-fullCalendar #fc [events]="events" [options]="options"></p-fullCalendar>
+  </div>
+</div>
+<p-toast position="bottom-left"></p-toast>
