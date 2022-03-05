@@ -5,6 +5,6 @@ Frontend is Angular and Spring Boot. Backend is Spring Boot. Redis is used for c
 
 There is only support for EWS so you will need a on premise Exchange server to use it. 
 
-The project does not support Office 365 (you will need Microsoft Graph API for that).
+The project does not support Office 365 (Microsoft Graph is not supported for on premise installations). Either a Office 365 or a hybrid installation is needed for that.
 
 I hope it can be of help to someone.
