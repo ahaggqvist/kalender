@@ -278,7 +278,7 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
             final var appointment = Appointment.bind(service, itemId, propertySet);
 
             // We only delete a appointment if the appointments username match the delete requests username.
-            var appointmentUsername = getAppointmentUsername(appointment);
+            var appointmentUsername = getCreatedBy(appointment);
             if (StringUtils.equalsIgnoreCase(appointmentUsername, detail.getUsername())) {
                 log.debug(
                         "Delete appointment with appointment username {}, username {}, itemId {}",
@@ -291,16 +291,6 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
         }
 
         return false;
-    }
-
-    private String getAppointmentUsername(Appointment appointment) throws ServiceLocalException {
-        return (String)
-                appointment.getExtendedProperties().getItems().stream()
-                        .filter(
-                                e -> e.getPropertyDefinition().getPropertySetId().equals(PROPERTY_USERNAME_UUID))
-                        .findFirst()
-                        .map(ExtendedProperty::getValue)
-                        .orElse(null);
     }
 
     private AppointmentDetail createAppointmentDetail(Appointment appointment, Folder folder) {
